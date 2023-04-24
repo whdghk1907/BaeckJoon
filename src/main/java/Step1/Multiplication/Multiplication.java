@@ -1,13 +1,20 @@
+
 package Step1.Multiplication;
 
 import java.util.Scanner;
-public class Main {
+public class Multiplication {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int toMultiple = sc.nextInt();
         int byMultiple = sc.nextInt();
 
+        int result = multiply(toMultiple, byMultiple);
+
+        System.out.println(result);
+    }
+
+    public static int multiply(int toMultiple, int byMultiple) {
         int[] byMultipleArray = new int[3];
 
         int i = 0;
@@ -21,7 +28,6 @@ public class Main {
 
         for (int j = 1; j <= i; j++){
             int multiple = byMultipleArray[j - 1] * toMultiple;
-            System.out.println(multiple);
 
             int digit = 1;
 
@@ -31,6 +37,8 @@ public class Main {
 
             result += multiple * digit;
         }
-        System.out.println(result);
+
+        return result;
     }
+
 }
