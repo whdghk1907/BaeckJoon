@@ -1,44 +1,45 @@
-
 package Step1.Multiplication;
 
 import java.util.Scanner;
 public class Multiplication {
+    private static final int digits = 3;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         int toMultiple = sc.nextInt();
         int byMultiple = sc.nextInt();
 
-        int result = multiply(toMultiple, byMultiple);
-
-        System.out.println(result);
+        System.out.println(multiply(toMultiple, byMultiple));
     }
 
     public static int multiply(int toMultiple, int byMultiple) {
-        int[] byMultipleArray = new int[3];
-
-        int i = 0;
         int result = 0;
 
-        while (byMultiple >= 1){
-            byMultipleArray[i] = byMultiple % 10;
-            byMultiple /= 10;
-            i ++;
-        }
+        int[] byMultipleArray = integerToArray(byMultiple);
 
-        for (int j = 1; j <= i; j++){
-            int multiple = byMultipleArray[j - 1] * toMultiple;
+        for (int i = digits - 1; i >= 0; i--){
+            int multiple = byMultipleArray[i] * toMultiple;
+
+            System.out.println(multiple);
 
             int digit = 1;
-
-            for (int k = 1; k < j; k++) {
+            for (int j = i; j < digits - 1; j++) {
                 digit *= 10;
             }
-
             result += multiple * digit;
         }
-
         return result;
     }
 
+    public static int[] integerToArray(int integer) {
+        int[] byMultipleArray = new int[digits];
+        int i = digits;
+
+        while (integer >= 1){
+            i --;
+            byMultipleArray[i] = integer % 10;
+            integer /= 10;
+        }
+        return byMultipleArray;
+    }
 }
