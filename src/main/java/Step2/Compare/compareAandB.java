@@ -1,4 +1,4 @@
-package Step2;
+package Step2.Compare;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
