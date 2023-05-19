@@ -6,3 +6,6 @@
 build
 .idea
 /.idea/
+.pb
+misc.xml
+modules.xml
